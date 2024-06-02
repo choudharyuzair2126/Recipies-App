@@ -171,6 +171,8 @@ class _FaouriteState extends State<Faourite> {
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(
                                               const SnackBar(
+                                                duration:
+                                                    Duration(milliseconds: 500),
                                                 content: Text(
                                                     "Removed From Favorites"),
                                               ),

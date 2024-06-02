@@ -9,7 +9,7 @@
             "name": "recipie_app",
             "request": "launch",
             "type": "dart",
-            "program": "lib/Screens/main.dart",
+          
         },
         {
             "name": "recipie_app (profile mode)",

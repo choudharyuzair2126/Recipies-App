@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:recipie_app/Screens/favourite.dart';
 import 'package:recipie_app/Screens/recipiescreen.dart';
 import 'package:recipie_app/Services/injection.dart';
@@ -39,9 +40,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      bottom: false,
-      maintainBottomViewPadding: false,
+    return WillPopScope(
+      onWillPop: () async {
+        SystemNavigator.pop();
+        return false;
+      },
       child: Scaffold(
         backgroundColor: Colors.blue.shade100,
         appBar: AppBar(

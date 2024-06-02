@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: isloading == true
             ? Center(
                 child: CircularProgressIndicator(
-                  color: Colors.blue.shade200,
+                  backgroundColor: Colors.blue.shade200,
                 ),
               )
             : Padding(

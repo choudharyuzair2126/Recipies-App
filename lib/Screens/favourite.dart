@@ -70,75 +70,121 @@ class _FaouriteState extends State<Faourite> {
             )
           : Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ListView.builder(
-                  itemCount: favorite.length,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RecipieScreen(
-                                    name: favorite[index],
-                                    title: recipies
-                                        .meals![favorite[index]].strMeal,
-                                  ))),
-                      child: Card(
-                        color: Colors.blue.shade200,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Center(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: SizedBox(
-                                      height: 200,
-                                      //width: 300,
-                                      child: Image.network(
-                                        recipies.meals![favorite[index]]
-                                            .strMealThumb
-                                            .toString(),
-                                        //  fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Name : ${recipies.meals![favorite[index]].strMeal}",
-                                    style: const TextStyle(
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "Category : ${recipies.meals![favorite[index]].strCategory}",
-                                    style: const TextStyle(
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "Name : ${recipies.meals![favorite[index]].strMeal}",
-                                    style: const TextStyle(
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+              child: favorite.isEmpty
+                  ? const Center(
+                      child: Text(
+                        "Nothing in favorite!",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
-                    );
-                  })),
+                    )
+                  : ListView.builder(
+                      itemCount: favorite.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RecipieScreen(
+                                        name: favorite[index],
+                                        title: recipies
+                                            .meals![favorite[index]].strMeal,
+                                      ))),
+                          child: Card(
+                            color: Colors.blue.shade200,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Center(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: SizedBox(
+                                          height: 200,
+                                          //width: 300,
+                                          child: Image.network(
+                                            recipies.meals![favorite[index]]
+                                                .strMealThumb
+                                                .toString(),
+                                            //  fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Name : ${recipies.meals![favorite[index]].strMeal}",
+                                        style: const TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        "Category : ${recipies.meals![favorite[index]].strCategory}",
+                                        style: const TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        "Name : ${recipies.meals![favorite[index]].strMeal}",
+                                        style: const TextStyle(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 14.0, vertical: 5),
+                                  child: SizedBox(
+                                      width: double.infinity,
+                                      child: ElevatedButton(
+                                        onPressed: () async {
+                                          final prefs = await SharedPreferences
+                                              .getInstance();
+                                          setState(() {
+                                            int index1 = favorite[index];
+                                            // Remove the index from the favorite list
+                                            favorite.removeWhere(
+                                                (element) => element == index1);
+
+                                            // Convert the favorite list back to a list of strings
+                                            List<String> favoriteStrings =
+                                                favorite
+                                                    .map((e) => e.toString())
+                                                    .toList();
+
+                                            // Save the updated favorite list in shared preferences
+                                            prefs.setStringList(
+                                                'favorited', favoriteStrings);
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              const SnackBar(
+                                                content: Text(
+                                                    "Removed From Favorites"),
+                                              ),
+                                            );
+                                          });
+                                        },
+                                        child: const Text("Remove favorites"),
+                                      )),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      })),
     );
   }
 }

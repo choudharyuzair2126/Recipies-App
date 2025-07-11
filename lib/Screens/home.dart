@@ -23,6 +23,10 @@ class _MyHomePageState extends State<MyHomePage> {
     getRecipies();
   }
 
+<<<<<<< HEAD
+=======
+  //List<String> favorited = ["", ""];
+>>>>>>> 47f5d9b66d82ee258fbdfdb12915a50dce50426c
   bool isloading = true;
   RecipieApi recipies = RecipieApi();
   getRecipies() {
@@ -81,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: SizedBox(
+<<<<<<< HEAD
                                         height: 400,
                                         width: double.infinity,
                                         child: Image.network(
@@ -109,6 +114,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                           errorBuilder: (context, error,
                                                   stackTrace) =>
                                               const Icon(Icons.error, size: 50),
+=======
+                                        height: 200,
+                                        //width: 300,
+                                        child: Image.network(
+                                          recipies.meals![index].strMealThumb
+                                              .toString(),
+                                          //  fit: BoxFit.cover,
+>>>>>>> 47f5d9b66d82ee258fbdfdb12915a50dce50426c
                                         ),
                                       ),
                                     ),
@@ -134,7 +147,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Text(
+<<<<<<< HEAD
                                       "Region : ${recipies.meals![index].strArea}",
+=======
+                                      "Name : ${recipies.meals![index].strMeal}",
+>>>>>>> 47f5d9b66d82ee258fbdfdb12915a50dce50426c
                                       style: const TextStyle(
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold),

@@ -63,16 +63,11 @@ class _RecipieScreenState extends State<RecipieScreen> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: SizedBox(
-<<<<<<< HEAD
                               //   height: 200,
-=======
-                              height: 200,
->>>>>>> 47f5d9b66d82ee258fbdfdb12915a50dce50426c
                               //width: 300,
                               child: Image.network(
                                 recipies.meals![widget.name].strMealThumb
                                     .toString(),
-<<<<<<< HEAD
                                 fit: BoxFit.fill,
                                 loadingBuilder: (context, child,
                                         loadingProgress) =>
@@ -100,9 +95,7 @@ class _RecipieScreenState extends State<RecipieScreen> {
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
-=======
                                 //  fit: BoxFit.cover,
->>>>>>> 47f5d9b66d82ee258fbdfdb12915a50dce50426c
                               ),
                             ),
                           ),
@@ -126,11 +119,7 @@ class _RecipieScreenState extends State<RecipieScreen> {
                                         width: 60,
                                       ),
                                       Text(
-<<<<<<< HEAD
                                         "Reigon : ${recipies.meals![widget.name].strArea}",
-=======
-                                        "Area : ${recipies.meals![widget.name].strArea}",
->>>>>>> 47f5d9b66d82ee258fbdfdb12915a50dce50426c
                                         style: const TextStyle(
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold),
@@ -176,15 +165,7 @@ class _RecipieScreenState extends State<RecipieScreen> {
                                       height: 0.00000000000000001,
                                     )
                                   : Text(
-<<<<<<< HEAD
                                       "${recipies.meals![widget.name].strIngredient[index]} =  ${recipies.meals![widget.name].strMeasure[index]}",
-=======
-                                      recipies.meals![widget.name]
-                                              .strIngredient[index] +
-                                          "   =   " +
-                                          recipies.meals![widget.name]
-                                              .strMeasure[index],
->>>>>>> 47f5d9b66d82ee258fbdfdb12915a50dce50426c
                                       style: const TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold),

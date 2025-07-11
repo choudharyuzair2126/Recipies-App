@@ -23,10 +23,6 @@ class _MyHomePageState extends State<MyHomePage> {
     getRecipies();
   }
 
-<<<<<<< HEAD
-=======
-  //List<String> favorited = ["", ""];
->>>>>>> 47f5d9b66d82ee258fbdfdb12915a50dce50426c
   bool isloading = true;
   RecipieApi recipies = RecipieApi();
   getRecipies() {
@@ -138,11 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Text(
-<<<<<<< HEAD
                                       "Region : ${recipies.meals![index].strArea}",
-=======
-                                      "Name : ${recipies.meals![index].strMeal}",
->>>>>>> 47f5d9b66d82ee258fbdfdb12915a50dce50426c
                                       style: const TextStyle(
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold),

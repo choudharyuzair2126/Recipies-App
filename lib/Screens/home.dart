@@ -85,7 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: SizedBox(
-<<<<<<< HEAD
                                         height: 400,
                                         width: double.infinity,
                                         child: Image.network(
@@ -114,14 +113,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                           errorBuilder: (context, error,
                                                   stackTrace) =>
                                               const Icon(Icons.error, size: 50),
-=======
-                                        height: 200,
-                                        //width: 300,
-                                        child: Image.network(
-                                          recipies.meals![index].strMealThumb
-                                              .toString(),
-                                          //  fit: BoxFit.cover,
->>>>>>> 47f5d9b66d82ee258fbdfdb12915a50dce50426c
                                         ),
                                       ),
                                     ),
